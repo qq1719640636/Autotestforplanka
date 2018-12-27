@@ -37,7 +37,7 @@ public class plankmultilanuagetest {
         uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/"+lang[0]+"_homepage.jpg"));
         Thread.sleep(200);
         //截图 法语，意大利，德语，西班牙语
-        for(int i=1;i<4;i++){
+        for(int i=1;i<5;i++){
         new UiObject(new UiSelector().className("android.widget.ImageButton")).click();
         Thread.sleep(200);
         new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(5)).click();
@@ -47,7 +47,7 @@ public class plankmultilanuagetest {
         uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/"+lang[i]+"_homepage.jpg"));
         Thread.sleep(200);}
         //截剩余的语言
-        for(int i=4;i<16;i++){
+        for(int i=5;i<16;i++){
             new UiObject(new UiSelector().className("android.widget.ImageButton")).click();
             Thread.sleep(200);
             new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(5)).click();
