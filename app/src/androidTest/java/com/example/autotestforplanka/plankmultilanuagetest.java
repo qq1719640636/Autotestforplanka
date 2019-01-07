@@ -28,33 +28,25 @@ public class plankmultilanuagetest {
     }
     @Test
     public void Test() throws RemoteException, InterruptedException,UiObjectNotFoundException {
-        String[] lang = {"en","fr","it","de","es","ru","pt","nl","po","ja","ko","tr","ar","in","cn","tw"};
+        String[] lang = {"en", "fr", "it", "de", "es", "ru", "pt", "nl", "po", "ja", "ko", "tr", "ar", "in", "cn", "tw"};
+        String[] lang1={"English","Français","Italiano","Deutsch","Español","Русский","Português","Nederlands"
+        ,"Polski","日本語","한국어","Türkçe","العربية","Indonesia","简体中文","繁體中文"};
         uiDevice.pressHome();
         Thread.sleep(300);
         uiDevice.findObject(By.desc("Plank Workout")).click();
         Thread.sleep(6000);
         //截英语
-        uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/"+lang[0]+"_homepage.jpg"));
+        uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/" + lang[0] + "_homepage.jpg"));
         Thread.sleep(200);
-        //截图 法语，意大利，德语，西班牙语
-        for(int i=1;i<5;i++){
-        new UiObject(new UiSelector().className("android.widget.ImageButton")).click();
-        Thread.sleep(200);
-        new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(5)).click();
-        Thread.sleep(200);
-        new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(1)).click();
-        Thread.sleep(6000);
-        uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/"+lang[i]+"_homepage.jpg"));
-        Thread.sleep(200);}
-        //截剩余的语言
-        for(int i=5;i<16;i++){
+        for (int i = 1; i < 16; i++) {
             new UiObject(new UiSelector().className("android.widget.ImageButton")).click();
             Thread.sleep(200);
             new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(5)).click();
             Thread.sleep(200);
-            new UiObject(new UiSelector().className("android.widget.CheckedTextView").instance(i-2)).click();
-            Thread.sleep(6000);
-            uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/"+lang[i]+"_homepage.jpg"));}
+            uiDevice.findObject(By.text(lang1[i])).click();
+            Thread.sleep(5000);
+            uiDevice.takeScreenshot(new File("/data/data/com.example.autotestforplanka/" + lang[i] + "_homepage.jpg"));
             Thread.sleep(200);
+        }
     }
 }
